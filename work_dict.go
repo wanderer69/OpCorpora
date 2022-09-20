@@ -16,7 +16,7 @@ import (
 	"time"
 	"unicode/utf8"
 
-	. "arkhangelskiy-dv.ru/SmallDB/v3"
+	. "github.com/wanderer69/SmallDB/v3"
 )
 
 type Corpora struct {

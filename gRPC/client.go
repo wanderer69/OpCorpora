@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"arkhangelskiy-dv.ru/OpCorpora/gRPC/proto"
+	"github.com/wanderer69/OpCorpora/gRPC/proto"
 
-	. "arkhangelskiy-dv.ru/OpCorpora/common"
+	. "github.com/wanderer69/OpCorpora/common"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/grpclog"

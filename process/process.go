@@ -5,10 +5,10 @@ import (
 	"time"
 	"errors"
 
-	. "arkhangelskiy-dv.ru/OpCorpora/common"
-	. "arkhangelskiy-dv.ru/OpCorpora/settings"
+	. "github.com/wanderer69/OpCorpora/common"
+	. "github.com/wanderer69/OpCorpora/settings"
 	"math/rand"
-	moc "arkhangelskiy-dv.ru/OpCorpora" 	
+	moc "github.com/wanderer69/OpCorpora" 	
 )
 
 func init() {

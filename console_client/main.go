@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"flag"
-	. "arkhangelskiy-dv.ru/OpCorpora/gRPC"
+	. "github.com/wanderer69/OpCorpora/gRPC"
 )
 
 func main() {

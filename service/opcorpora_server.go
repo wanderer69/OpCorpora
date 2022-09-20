@@ -1,28 +1,15 @@
 package main
 
 import (
-	//	"crypto/sha1"
 	"encoding/json"
-	// "errors"
 	"flag"
 	"fmt"
 	"io/ioutil"
 	"os"
 	"os/signal"
 
-	//	"strconv"
-	//	"time"
-
-	. "arkhangelskiy-dv.ru/OpCorpora/gRPC"
-	. "arkhangelskiy-dv.ru/OpCorpora/settings"
-	//. "arkhangelskiy-dv.ru/AuthService/db"
-	//. "arkhangelskiy-dv.ru/MyPageService/server"
-	//. "arkhangelskiy-dv.ru/MyPageService/settings"
-	//. "arkhangelskiy-dv.ru/MyPageService/blog"
-
-	//	. "arkhangelskiy-dv.ru/server"
-	//	"github.com/google/uuid"
-	// "github.com/jackc/pgx/v4"
+	. "github.com/wanderer69/OpCorpora/gRPC"
+	. "github.com/wanderer69/OpCorpora/settings"
 )
 
 func LoadSettings() (*Settings, error) {

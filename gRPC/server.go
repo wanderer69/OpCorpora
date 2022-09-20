@@ -2,16 +2,16 @@ package gRPC
 
 import (
     "net"
-    "arkhangelskiy-dv.ru/OpCorpora/gRPC/proto"
+    "github.com/wanderer69/OpCorpora/gRPC/proto"
     "golang.org/x/net/context"
     "google.golang.org/grpc"
     "google.golang.org/grpc/grpclog"
     "fmt"
     "errors"
-	. "arkhangelskiy-dv.ru/OpCorpora/settings"
-	moc "arkhangelskiy-dv.ru/OpCorpora"    
-	. "arkhangelskiy-dv.ru/OpCorpora/common"
-	proc "arkhangelskiy-dv.ru/OpCorpora/process"
+	. "github.com/wanderer69/OpCorpora/settings"
+	moc "github.com/wanderer69/OpCorpora"    
+	. "github.com/wanderer69/OpCorpora/common"
+	proc "github.com/wanderer69/OpCorpora/process"
 )
 
 type server struct{

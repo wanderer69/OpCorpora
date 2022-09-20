@@ -1,14 +1,11 @@
 package main
 
 import (
-	//	"encoding/xml"
 	"flag"
 	"fmt"
-
-	//	"io/ioutil"
 	"os"
 
-	. "arkhangelskiy-dv.ru/OpCorpora"
+	. "github.com/wanderer69/OpCorpora"
 )
 
 func main() {
