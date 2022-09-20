@@ -1,0 +1,50 @@
+{
+  "Type": "read",
+  "DB_path": "./OCorporaDB",
+  "Debug": 0,
+  "NumRec": 10000,
+  "AddRec": [
+    {
+      "Name": "context",
+      "Value": "=4*"
+    },
+    {
+      "Name": "fact",
+      "Value": "=2*"
+    },
+    {
+      "Name": "obj",
+      "Value": "=*"
+    },
+    {
+      "Name": "rel",
+      "Value": "=*"
+    },
+    {
+      "Name": "subj",
+      "Value": "=*"
+    }
+  ],
+  "Find": [
+    {
+      "Name": "context",
+      "Value": "c*"
+    },
+    {
+      "Name": "fact",
+      "Value": "*"
+    },
+    {
+      "Name": "obj",
+      "Value": "*"
+    },
+    {
+      "Name": "rel",
+      "Value": "*"
+    },
+    {
+      "Name": "subj",
+      "Value": "*"
+    }
+  ]
+}

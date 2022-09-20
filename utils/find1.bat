@@ -1,0 +1,1 @@
+Test1 -mode=find_short -args=ёжики
