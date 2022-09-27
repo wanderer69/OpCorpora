@@ -25,6 +25,20 @@ func G_RPC_init(port int) (*grpc.ClientConn, error) {
 	return conn, nil
 }
 
+func G_RPC_init_full(ip_addr string, port int) (*grpc.ClientConn, error) {
+	opts := []grpc.DialOption{
+		grpc.WithInsecure(),
+	}
+	ss := fmt.Sprintf("%v:%v", ip_addr, port) // 5300
+	conn, err := grpc.Dial(ss, opts...)
+	if err != nil {
+		grpclog.Fatalf("fail to dial: %v", err)
+		return nil, err
+	}
+	return conn, nil
+}
+
+
 func G_RPC_Check(conn *grpc.ClientConn, query string) (string, error) {
 	client := proto.NewOpCorporaServiceClient(conn)
 	request := &proto.CheckRequest{
@@ -38,6 +52,21 @@ func G_RPC_Check(conn *grpc.ClientConn, query string) (string, error) {
 	//fmt.Println(response)
 	return response.Result, nil
 }
+
+func G_RPC_Mode(conn *grpc.ClientConn, mode string) (string, error) {
+	client := proto.NewOpCorporaServiceClient(conn)
+	request := &proto.ModeRequest{
+		Mode: mode,
+	}
+	response, err := client.Mode(context.Background(), request)
+	if err != nil {
+		grpclog.Fatalf("fail to dial: %v", err)
+		return "error", err
+	}
+	//fmt.Println(response)
+	return response.Result, nil
+}
+
 /*
 type WordItem struct {
 	BaseWord string
