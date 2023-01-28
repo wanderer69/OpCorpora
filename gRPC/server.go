@@ -66,7 +66,7 @@ func G_RPC_server(s *Settings/*port int, path string, flag_mode string*/) error 
 	var answer_ch chan *CommandAnswer
 	//var oc *moc.OCorpora
 
-	oc, err := moc.OpenOCorporaFull(s.OpCorporaPath)
+	oc, err := moc.OpenOCorporaFull(s.OpCorporaPath, 0)
 	if err != nil {
 		grpclog.Fatalf("failed to open db: %v", err)
 		return err		

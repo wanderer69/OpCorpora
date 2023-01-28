@@ -12,11 +12,11 @@ import (
 	"google.golang.org/grpc/grpclog"
 )
 
-func G_RPC_init(port int) (*grpc.ClientConn, error) {
+func G_RPC_init(address string, port int) (*grpc.ClientConn, error) {
 	opts := []grpc.DialOption{
 		grpc.WithInsecure(),
 	}
-	ss := fmt.Sprintf("127.0.0.1:%v", port) // 5300
+	ss := fmt.Sprintf("%v:%v", address, port) // 5300
 	conn, err := grpc.Dial(ss, opts...)
 	if err != nil {
 		grpclog.Fatalf("fail to dial: %v", err)

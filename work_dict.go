@@ -681,11 +681,14 @@ func OpenOCorpora(path string) (*OCorpora, error) {
 	return oc, nil
 }
 
-func OpenOCorporaFull(path string) (*OCorpora, error) {
+func OpenOCorporaFull(path string, debug int) (*OCorpora, error) {
 	psdb := Init_SmallDB(path) // "./OCorporaDBFull"
 	sdb := &psdb
 	sdb.Debug = 0
 	Global_Dict_Init()
+	if debug > 2 {
+		fmt.Printf("Inited %v\r\n", sdb.Inited)
+	}
 	if !sdb.Inited {
 		fl := []string{"word_form", "word", "POS", "animacy", "aspects", "cases", "genders", "involvement", "moods", "numbers", "persons", "tenses", "transitivity", "voices", "word_property"}
 		res := sdb.CreateDB(fl, path) // "./OCorporaDBFull"
