@@ -179,7 +179,7 @@ func Global_Dict_Init() {
 	POS_dict_int["ADJF"] = "имя_прилагательное_полное"
 	POS_dict_int["ADJS"] = "имя_прилагательное_краткое"
 	POS_dict_int["ADJ"] = "имя_прилагательное"
-	POS_dict_int["DET"] = "имя_прилагательное_детерминант"
+	POS_dict_int["DET"] = "имя_прилагательное_определитель" // детерменатив
 	POS_dict_int["COMP"] = "компаратив"
 	POS_dict_int["VERB"] = "глагол_личная_форма"
 	POS_dict_int["INFN"] = "глагол_инфинитив"
