@@ -195,6 +195,7 @@ func Global_Dict_Init() {
 	POS_dict_int["PREP"] = "предлог"
 	POS_dict_int["ADP"] = "предлог"
 	POS_dict_int["CONJ"] = "союз"
+	POS_dict_int["SCONJ"] = "союз_подчинительный"
 	POS_dict_int["PRCL"] = "частица"
 	POS_dict_int["INTJ"] = "междометие"
 	POS_dict_int["PNCT"] = "знак_пунктуации"
