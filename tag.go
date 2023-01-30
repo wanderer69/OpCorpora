@@ -562,6 +562,38 @@ func Tag2str_attr_int(tag string) (string, string) {
 	return "", ""
 }
 
+func Tag2str_attr_ru_int(tag string) (string, string) {
+	//var ret string
+	if value_old, ok := POS_dict_int[tag]; ok {
+		return "часть_речи", value_old
+	} else if value_old, ok := animacy_dict_int[tag]; ok {
+		return "одушевлённость", value_old
+	} else if value_old, ok := aspects_dict_int[tag]; ok {
+		return "совершённость", value_old
+	} else if value_old, ok := cases_dict_int[tag]; ok {
+		return "падеж", value_old
+	} else if value_old, ok := genders_dict_int[tag]; ok {
+		return "пол", value_old
+	} else if value_old, ok := involvement_dict_int[tag]; ok {
+		return "involvement", value_old
+	} else if value_old, ok := moods_dict_int[tag]; ok {
+		return "наклонение", value_old
+	} else if value_old, ok := numbers_dict_int[tag]; ok {
+		return "число", value_old
+	} else if value_old, ok := persons_dict_int[tag]; ok {
+		return "лицо", value_old
+	} else if value_old, ok := tenses_dict_int[tag]; ok {
+		return "время", value_old
+	} else if value_old, ok := transitivity_dict_int[tag]; ok {
+		return "переходность", value_old
+	} else if value_old, ok := voices_dict_int[tag]; ok {
+		return "залог", value_old
+	} else if value_old, ok := attributes_dict_int[tag]; ok {
+		return "атрибут", value_old
+	}
+	return "", ""
+}
+
 func Tag2num_array_int(tag string) (int, bool) {
 	//var ret string
 	for i, _ := range POS_array_int {
