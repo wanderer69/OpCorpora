@@ -243,11 +243,16 @@ func Global_Dict_Init() {
 
 	cases_dict_int = make(map[string]string)
 	cases_dict_int["nomn"] = "именительный_падеж"
+	cases_dict_int["nom"] = "именительный_падеж"
 	cases_dict_int["gent"] = "родительный_падеж"
+	cases_dict_int["gen"] = "родительный_падеж"
 	cases_dict_int["datv"] = "дательный_падеж"
 	cases_dict_int["accs"] = "винительный_падеж"
+	cases_dict_int["acc"] = "винительный_падеж"
 	cases_dict_int["ablt"] = "творительный_падеж"
+	cases_dict_int["ins"] = "творительный_падеж"
 	cases_dict_int["loct"] = "предложный_падеж"
+	cases_dict_int["loc"] = "предложный_падеж"
 	cases_dict_int["voct"] = "звательный_падеж"
 	cases_dict_int["gen1"] = "первый_родительный_падеж"
 	cases_dict_int["gen2"] = "второй_родительный_частичный_падеж"
