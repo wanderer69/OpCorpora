@@ -75,6 +75,7 @@ func Global_Dict_Init() {
 	genders_dict = make(map[string]string)
 	genders_dict["masc"] = "мужской род"
 	genders_dict["femn"] = "женский род"
+	genders_dict["fem"] = "женский род"
 	genders_dict["neut"] = "средний род"
 
 	numbers_dict = make(map[string]string)
@@ -98,6 +99,7 @@ func Global_Dict_Init() {
 	aspects_dict = make(map[string]string)
 	aspects_dict["perf"] = "совершенный вид"
 	aspects_dict["impf"] = "несовершенный вид"
+	aspects_dict["imp"] = "несовершенный вид"
 
 	transitivity_dict = make(map[string]string)
 	transitivity_dict["tran"] = "переходный"
@@ -105,8 +107,11 @@ func Global_Dict_Init() {
 
 	persons_dict = make(map[string]string)
 	persons_dict["1per"] = "1 лицо"
+	persons_dict["1"] = "1 лицо"
 	persons_dict["2per"] = "2 лицо"
+	persons_dict["2"] = "2 лицо"
 	persons_dict["3per"] = "3 лицо"
+	persons_dict["3"] = "3 лицо"
 
 	tenses_dict = make(map[string]string)
 	tenses_dict["pres"] = "настоящее время"
@@ -237,6 +242,7 @@ func Global_Dict_Init() {
 	genders_dict_int = make(map[string]string)
 	genders_dict_int["masc"] = "мужской_род"
 	genders_dict_int["femn"] = "женский_род"
+	genders_dict_int["fem"] = "женский_род"
 	genders_dict_int["neut"] = "средний_род"
 
 	numbers_dict_int = make(map[string]string)
@@ -249,6 +255,7 @@ func Global_Dict_Init() {
 	cases_dict_int["gent"] = "родительный_падеж"
 	cases_dict_int["gen"] = "родительный_падеж"
 	cases_dict_int["datv"] = "дательный_падеж"
+	cases_dict_int["dat"] = "дательный_падеж"
 	cases_dict_int["accs"] = "винительный_падеж"
 	cases_dict_int["acc"] = "винительный_падеж"
 	cases_dict_int["ablt"] = "творительный_падеж"
@@ -265,6 +272,7 @@ func Global_Dict_Init() {
 	aspects_dict_int = make(map[string]string)
 	aspects_dict_int["perf"] = "совершенный_вид"
 	aspects_dict_int["impf"] = "несовершенный_вид"
+	aspects_dict_int["imp"] = "несовершенный_вид"
 
 	transitivity_dict_int = make(map[string]string)
 	transitivity_dict_int["tran"] = "переходный"
@@ -272,8 +280,11 @@ func Global_Dict_Init() {
 
 	persons_dict_int = make(map[string]string)
 	persons_dict_int["1per"] = "первое_лицо"
+	persons_dict_int["1"] = "первое_лицо"
 	persons_dict_int["2per"] = "второе_лицо"
+	persons_dict_int["2"] = "второе_лицо"
 	persons_dict_int["3per"] = "третье_лицо"
+	persons_dict_int["3"] = "третье_лицо"
 
 	tenses_dict_int = make(map[string]string)
 	tenses_dict_int["pres"] = "настоящее_время"
@@ -282,11 +293,14 @@ func Global_Dict_Init() {
 
 	moods_dict_int = make(map[string]string)
 	moods_dict_int["indc"] = "изъявительное_наклонение"
+	moods_dict_int["ind"] = "изъявительное_наклонение"
 	moods_dict_int["impr"] = "повелительное_наклонение"
 
 	voices_dict_int = make(map[string]string)
 	voices_dict_int["actv"] = "действительный_залог"
+	voices_dict_int["act"] = "действительный_залог"
 	voices_dict_int["pssv"] = "страдательный_залог"
+	voices_dict_int["mid"] = "средний_залог"
 
 	involvement_dict_int = make(map[string]string)
 	involvement_dict_int["incl"] = "говорящий_включён_в_действие"
@@ -345,6 +359,9 @@ func Global_Dict_Init() {
 	attributes_dict_int["Impx"] = "возможно безличное употребление"
 	attributes_dict_int["Mult"] = "многократный"
 	attributes_dict_int["Refl"] = "возвратный"
+
+	attributes_dict_int["fin"] = "спрягаемый"
+	attributes_dict_int["pos"] = "положительная степень"
 
 	POS_dict_back = make(map[string]string)
 	POS_dict_back["имя_существительное"] = "NOUN"
