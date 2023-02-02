@@ -188,6 +188,7 @@ func Global_Dict_Init() {
 	POS_dict_int["COMP"] = "компаратив"
 	POS_dict_int["VERB"] = "глагол_личная_форма"
 	POS_dict_int["INFN"] = "глагол_инфинитив"
+	POS_dict_int["AUX"] = "глагол_вспомогательный"
 	POS_dict_int["PRTF"] = "причастие_полное"
 	POS_dict_int["PRTS"] = "причастие_краткое"
 	POS_dict_int["GRND"] = "деепричастие"
