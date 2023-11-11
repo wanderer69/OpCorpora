@@ -1,0 +1,1 @@
+console_client.exe -mode=findword -address=158.160.10.100 -port=5300 -file_name="value_word.txt"
