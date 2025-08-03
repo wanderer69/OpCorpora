@@ -100,7 +100,7 @@ func (s *server) FindWord(ctx context.Context, request *proto.FindWordRequest) (
 	//fmt.Printf("%v\r\n", request.Token)
 	switch s.s.Mode {
 	case "sync":
-		result, err := moc.FindWordCorporaService(s.oc, request.Word)
+		result, err := s.oc.FindWordCorporaService(request.Word)
 		if err != nil {
 			response := &proto.FindWordResponse{
 				Result: "Error",
