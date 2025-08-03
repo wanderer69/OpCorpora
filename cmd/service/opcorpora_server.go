@@ -19,10 +19,8 @@ func LoadSettings() (*settings.Settings, error) {
 		return nil, err
 	}
 
-	// json data
 	var s settings.Settings
 
-	// unmarshall it
 	err = json.Unmarshal(data, &s)
 	if err != nil {
 		fmt.Println("error:", err)
@@ -42,8 +40,6 @@ func SaveSettings(s *settings.Settings) error {
 }
 
 func main() {
-	// modePtr := flag.String("mode", "login", "mode: register, login, method")
-
 	var port_var string
 	flag.StringVar(&port_var, "port", "9091", "external port")
 	var port_client_var string
@@ -65,8 +61,6 @@ func main() {
 		}
 		return
 	}
-
-	// MyPageServer("/api/v1", s)    // /newpage
 	fmt.Printf("Server started\r\n")
 	gateway.GRPCServer(s)
 

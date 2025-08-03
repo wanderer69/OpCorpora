@@ -123,8 +123,6 @@ func (q *Queue) Delete(qi *QueueItem) error {
 
 // на входе каналы - командный и для возврата результата
 func Tasker(s *settings.Settings, cmd_ch chan *common.Command, answer_ch chan *common.CommandAnswer, oc *moc.OCorpora) {
-	// global_send_id := 1
-
 	channel_in := make(chan SendReceiveItem)
 	channel_out := make(chan SendReceiveAnswerItem)
 	channel_exit := make(chan bool)
@@ -134,11 +132,10 @@ func Tasker(s *settings.Settings, cmd_ch chan *common.Command, answer_ch chan *c
 		for {
 			select {
 			case sri := <-channel_in:
-				//fmt.Printf("sri.Type %v\r\n", sri.Type)
 				switch sri.Type {
 				case "find":
 					result_ := "OK"
-					result, err := moc.FindWordCorporaService(oc, sri.Word)
+					result, err := oc.FindWordCorporaService(sri.Word)
 					error_ := ""
 					if err != nil {
 						result_ = "Error"
@@ -171,7 +168,6 @@ func Tasker(s *settings.Settings, cmd_ch chan *common.Command, answer_ch chan *c
 	next_state := 0
 	n := 0
 	var srai SendReceiveAnswerItem
-	//msg_dict := make(map[string]*Message)
 
 	for {
 		select {
@@ -185,8 +181,6 @@ func Tasker(s *settings.Settings, cmd_ch chan *common.Command, answer_ch chan *c
 				qi.State = "wait"
 				q.Add(&qi)
 				// отправляем периодический запрос на прием
-				//v := t.String()
-				//log.Println("write:", v)
 			}
 		case command_in := <-cmd_ch:
 			switch command_in.Cmd {
@@ -212,7 +206,6 @@ func Tasker(s *settings.Settings, cmd_ch chan *common.Command, answer_ch chan *c
 				flag_ := false
 				if qi != nil {
 					for {
-						//fmt.Printf("command_in.MessageInID %v qi.Id %v\r\n", command_in.MessageInID, qi.Id)
 						if command_in.ID == qi.Id {
 							state = qi.State
 							flag_ = true
@@ -231,7 +224,6 @@ func Tasker(s *settings.Settings, cmd_ch chan *common.Command, answer_ch chan *c
 					qi = q_.Head
 					if qi != nil {
 						for {
-							//fmt.Printf("command_in.MessageInID %v qi.Id %v\r\n", command_in.MessageInID, qi.Id)
 							if command_in.ID == qi.Id {
 								state = qi.State
 								words = qi.Words
@@ -290,7 +282,6 @@ func Tasker(s *settings.Settings, cmd_ch chan *common.Command, answer_ch chan *c
 		case 0:
 			// нет загрузки почтового клиента. смотрим очередь
 			if q.Head != nil {
-				//fmt.Printf("!!!\r\n")
 				// есть, берем в работу
 				qi := q.Head
 				sri := SendReceiveItem{}
@@ -326,7 +317,7 @@ func Tasker(s *settings.Settings, cmd_ch chan *common.Command, answer_ch chan *c
 }
 
 func Init_Unique_Value() {
-	rand.Seed(time.Now().UTC().UnixNano())
+	rand.New(rand.NewSource(time.Now().UTC().UnixNano()))
 }
 
 func Unique_Value(len_n int) string {

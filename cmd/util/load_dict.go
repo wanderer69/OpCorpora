@@ -60,7 +60,7 @@ func main() {
 		opcorpora.StoreDictionaryOC(doc)
 	case "create_from_dict_gob":
 		d := opcorpora.LoadDictionary()
-		co, res := opcorpora.ConvertOpenCorpora2HashTable(&d, ss.RestrictionsList, "./", "")
+		co, res := opcorpora.ConvertOpenCorpora2HashTable(d, ss.RestrictionsList, "./", "")
 		if res {
 			oc, _ := opcorpora.OpenOCorpora(*BasePtr)
 			oc.StoreToSmallDB(co)
@@ -68,14 +68,14 @@ func main() {
 		}
 	case "create_corpora_gob":
 		d := opcorpora.LoadDictionary()
-		co, res := opcorpora.ConvertOpenCorpora2HashTable(&d, ss.RestrictionsList, "./", "")
+		co, res := opcorpora.ConvertOpenCorpora2HashTable(d, ss.RestrictionsList, "./", "")
 		if res {
 			opcorpora.StoreCorpora(co)
 		}
 
 	case "create_corpora_gob_new":
 		d := opcorpora.LoadDictionary()
-		co, res := opcorpora.ConvertOpenCorpora2HashTableNew(&d, ss.RestrictionsList)
+		co, res := opcorpora.ConvertOpenCorpora2HashTableNew(d, ss.RestrictionsList)
 		if res {
 			opcorpora.StoreCorpora(co)
 		}
@@ -130,14 +130,14 @@ func main() {
 	case "find_dict_gob":
 		d := opcorpora.LoadDictionary()
 		word_form_data := *ArgsPtr
-		res := opcorpora.FindDictionary(&d, word_form_data)
+		res := opcorpora.FindDictionary(d, word_form_data)
 		fmt.Printf("res %v\r\n", res)
 	case "find_dict_gob_convert":
 		d := opcorpora.LoadDictionary()
 		word_form_data := *ArgsPtr
-		res := opcorpora.FindDictionary(&d, word_form_data)
+		res := opcorpora.FindDictionary(d, word_form_data)
 		fmt.Printf("res %v\r\n", res)
-		co, res1 := opcorpora.ConvertOpenCorpora2HashTable(&d, ss.RestrictionsList, "./", word_form_data)
+		co, res1 := opcorpora.ConvertOpenCorpora2HashTable(d, ss.RestrictionsList, "./", word_form_data)
 		if res1 {
 			opcorpora.FindWord(word_form_data, co)
 		}
@@ -148,18 +148,13 @@ func main() {
 	case "find":
 		oc, _ := opcorpora.OpenOCorpora(*BasePtr)
 		word_form_data := *ArgsPtr
-		opcorpora.FindWordCorpora(word_form_data, oc)
+		oc.FindWordCorpora(word_form_data)
 		oc.CloseSmallDB()
 	case "test_find":
 		co := opcorpora.LoadCorpora(*gobPtr)
 		oc, _ := opcorpora.OpenOCorpora(*BasePtr)
-		//oc.StoreToSmallDB(co)
 		oc.TestFindSmallDB(co)
 		oc.CloseSmallDB()
-		//oc, _ := OpenOCorpora()
-		//word_form_data := *ArgsPtr
-		//FindWordCorpora(word_form_data, oc)
-		//oc.CloseSmallDB()
 	case "test_find_full":
 		co := opcorpora.LoadCorpora(*gobPtr)
 		co.Restrict = restrict
@@ -169,7 +164,7 @@ func main() {
 	case "find_short":
 		oc, _ := opcorpora.OpenOCorporaShort("./OCorporaDBShort")
 		word_form_data := *ArgsPtr
-		result := opcorpora.FindWordCorporaShort(word_form_data, oc)
+		result := oc.FindWordCorporaShort(word_form_data)
 		if len(result) == 0 {
 		} else {
 			for i := range result {
@@ -180,13 +175,12 @@ func main() {
 	case "find_short_short":
 		oc, _ := opcorpora.OpenOCorporaShort("./OCorporaDBShort")
 		word_form_data := *ArgsPtr
-		result := opcorpora.FindWordCorporaShort(word_form_data, oc)
+		result := oc.FindWordCorporaShort(word_form_data)
 		if len(result) == 0 {
 		} else {
 			hwp := opcorpora.InitHashWordProp()
 			for i := range result {
 				word := result[i][0]
-				// base_word := result[i][1]
 				data := opcorpora.GetWordProperties(result[i][2])
 				rwpl := opcorpora.GetWordFromWordProperties(word, data)
 				rwpln := hwp.HashList(rwpl)
@@ -199,7 +193,6 @@ func main() {
 		oc.CloseSmallDB()
 	case "test_short":
 		oc, _ := opcorpora.OpenOCorporaShort("./OCorporaDBShort")
-		//word_form_data := *ArgsPtr
 		co := opcorpora.LoadCorpora(*gobPtr)
 		oc.TestWordCorporaShort(co)
 		oc.CloseSmallDB()
